@@ -65,7 +65,7 @@ class Plan with _$Plan {
     required bool sell,
     required bool renew,
     @JsonKey(name: 'reset_traffic_method') int? resetTrafficMethod,
-    required int sort,
+    int? sort,
     @JsonKey(name: 'created_at') int? createdAt,
     @JsonKey(name: 'updated_at') int? updatedAt,
   }) = _Plan;
