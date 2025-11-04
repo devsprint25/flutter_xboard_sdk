@@ -36,10 +36,17 @@ class InviteInfo with _$InviteInfo {
 
   factory InviteInfo.fromJson(Map<String, dynamic> json) => _$InviteInfoFromJson(json);
 
+  // stat 数组结构（基于旧版本定义）:
+  // stat[0] - 总邀请数 (totalInvites)
+  // stat[1] - 总佣金 (totalCommission)
+  // stat[2] - 待处理佣金 (pendingCommission)
+  // stat[3] - 返利比例 (commissionRate)
+  // stat[4] - 可用佣金 (availableCommission)
   int get totalInvites => stat.isNotEmpty ? stat[0] : 0;
-  int get validInvites => stat.length > 1 ? stat[1] : 0;
-  int get totalCommission => stat.length > 2 ? stat[2] : 0;
+  int get totalCommission => stat.length > 1 ? stat[1] : 0;
+  int get pendingCommission => stat.length > 2 ? stat[2] : 0;
   int get commissionRate => stat.length > 3 ? stat[3] : 0;
+  int get availableCommission => stat.length > 4 ? stat[4] : 0;
 }
 
 @freezed
